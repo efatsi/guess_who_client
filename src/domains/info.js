@@ -15,7 +15,7 @@ const InfoDomain = {
 
   register () {
     return {
-      [updateInfo]: this.update
+      [updateInfo]: this.update,
     }
   }
 }

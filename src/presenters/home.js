@@ -13,7 +13,7 @@ class Home extends Presenter {
 
   renderDone () {
     if (this.model.done) {
-      return (<div>Done</div>)
+      return (<h1>Hopefully this person!</h1>)
     }
   }
 
@@ -26,18 +26,12 @@ class Home extends Presenter {
   }
 
   render () {
-    let { answers, people } = this.model
+    let { people } = this.model
 
     return (
       <div>
         { this.renderDone() }
 
-        Answers
-        <ul>
-          { answers.map(this.renderAnswer) }
-        </ul>
-
-        People
         <PeopleBox people={people} />
       </div>
     )
