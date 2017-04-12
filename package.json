@@ -9,11 +9,12 @@
     "react-scripts": "^0.8.4"
   },
   "dependencies": {
-    "react-motion": "0.4.7",
     "gangway": "2.2.0",
     "microcosm": "^12.3.0",
+    "pusher-js": "4.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-motion": "0.4.7",
     "react-router": "^3.0.0"
   },
   "scripts": {

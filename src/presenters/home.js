@@ -7,7 +7,10 @@ class Home extends Presenter {
     return {
       answers: state => state.info.answers,
       done:    state => state.info.done,
-      people:  state => state.info.people
+      people:  state => {
+        return state.info.people.people
+      }
+
     }
   }
 

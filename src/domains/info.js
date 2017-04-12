@@ -4,7 +4,9 @@ const InfoDomain = {
   getInitialState () {
     return {
       answers: [],
-      people: [],
+      people: {
+        people: []
+      },
       done: false
     }
   },

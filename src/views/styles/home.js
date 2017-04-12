@@ -1,11 +1,11 @@
 let styles = {
   peopleBox: {
-    // borderStyle: "solid",
-    position: "relative"
+    borderStyle: "solid",
+    position: "static"
   },
   profilePic: {
     position: "absolute",
-    transform: "translateX(-50%)"
+    transform: "translateX(-50%) translateY(-50%)"
   },
   image: {
     objectFit: "cover",
