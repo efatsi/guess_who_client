@@ -5,14 +5,28 @@ import PeopleBox from '../views/peopleBox'
 class Home extends Presenter {
   getModel () {
     return {
+      pics:    state => state.pics,
       answers: state => state.info.answers,
       done:    state => state.info.done,
       waiting: state => state.info.waiting,
       people:  state => {
         return state.info.people.people
       }
-
     }
+  }
+
+  renderPic (image) {
+    return (
+      <img key={image.url} src={image.url} alt="" height="200" style={{display: "none"}}/>
+    )
+  }
+
+  renderPics () {
+    return (
+      <div>
+        { this.model.pics.map(this.renderPic) }
+      </div>
+    )
   }
 
   renderDone () {
@@ -30,6 +44,7 @@ class Home extends Presenter {
           <h1 style={{textAlign: "center"}}>
             Want to play? Think of a Viget and say: <br /><br />"Alexa, Ask The Know It All to begin"
           </h1>
+          { this.renderPics() }
         </div>)
     } else if (this.model.done) {
       let doneStyle = {

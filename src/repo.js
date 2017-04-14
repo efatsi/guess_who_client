@@ -1,12 +1,16 @@
 import Microcosm from 'microcosm'
 import Pusher from 'pusher-js'
 
-import { updateInfo } from './actions'
+import { updateInfo, getPics } from './actions'
 import Info from './domains/info'
+import Pics from './domains/pics'
 
 class Repo extends Microcosm {
   setup () {
     this.addDomain('info', Info)
+    this.addDomain('pics', Pics)
+
+    this.push(getPics)
 
     var pusher = new Pusher('cbd953bd1696f9fdef9e', {
       encrypted: true
