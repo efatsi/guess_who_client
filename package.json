@@ -5,10 +5,10 @@
   "devDependencies": {
     "enzyme": "^2.6.0",
     "nightmare": "^2.8.1",
-    "react-addons-test-utils": "^15.4.1",
-    "react-scripts": "^0.8.4"
+    "react-addons-test-utils": "^15.4.1"
   },
   "dependencies": {
+    "react-scripts": "^0.8.4",
     "gangway": "2.2.0",
     "microcosm": "^12.3.0",
     "pusher-js": "4.0.0",
