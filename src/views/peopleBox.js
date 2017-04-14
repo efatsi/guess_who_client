@@ -4,6 +4,10 @@ import {Motion, spring} from 'react-motion';
 
 class PeopleBox extends Component {
 
+  random (first, second) {
+    return Math.floor((Math.random() * second) + first)
+  }
+
   renderPerson (person, index) {
     let showing = person.visible
 
@@ -12,14 +16,14 @@ class PeopleBox extends Component {
         defaultStyle={{
           height: 200,
           width:  200,
-          left:   0,
-          top:    0
+          left:   this.random(0, 500),
+          top:    this.random(0, 500)
         }}
         style={{
           height: spring(showing ? 200 : 0),
           width:  spring(showing ? 200 : 0),
-          left:   spring(person.left),
-          top:    spring(person.top)
+          left:   spring(person.left, {stiffness: 120, damping: this.random(10,12)}),
+          top:    spring(person.top, {stiffness: 120, damping: this.random(10,12)})
         }}>
 
         { value => (

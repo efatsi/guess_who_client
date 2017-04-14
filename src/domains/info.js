@@ -7,6 +7,7 @@ const InfoDomain = {
       people: {
         people: []
       },
+      waiting: true,
       done: false
     }
   },

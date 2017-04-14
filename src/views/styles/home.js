@@ -1,6 +1,5 @@
 let styles = {
   peopleBox: {
-    borderStyle: "solid",
     position: "static"
   },
   profilePic: {

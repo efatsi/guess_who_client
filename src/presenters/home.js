@@ -7,6 +7,7 @@ class Home extends Presenter {
     return {
       answers: state => state.info.answers,
       done:    state => state.info.done,
+      waiting: state => state.info.waiting,
       people:  state => {
         return state.info.people.people
       }
@@ -15,8 +16,35 @@ class Home extends Presenter {
   }
 
   renderDone () {
-    if (this.model.done) {
-      return (<h1>Hopefully this person!</h1>)
+    if (this.model.waiting) {
+      let waitingStyle = {
+        width:          "100%",
+        height:         "100%",
+        position:       "absolute",
+        display:        "flex",
+        justifyContent: "center",
+        alignItems:     "center"
+      }
+      return (
+        <div style={waitingStyle}>
+          <h1 style={{textAlign: "center"}}>
+            Want to play? Say: <br /><br />"Ask Guess Who to begin"
+          </h1>
+        </div>)
+    } else if (this.model.done) {
+      let doneStyle = {
+        width:          "100%",
+        height:         "150px",
+        position:       "absolute",
+        display:        "flex",
+        justifyContent: "center",
+        alignItems:     "center"
+      }
+      return (
+        <div style={doneStyle}>
+          <h1>Hopefully this person!</h1>
+        </div>
+      )
     }
   }
 
