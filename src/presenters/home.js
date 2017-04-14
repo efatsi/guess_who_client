@@ -28,7 +28,7 @@ class Home extends Presenter {
       return (
         <div style={waitingStyle}>
           <h1 style={{textAlign: "center"}}>
-            Want to play? Say: <br /><br />"Ask Guess Who to begin"
+            Want to play? Think of a Viget and say: <br /><br />"Alexa, Ask The Know It All to begin"
           </h1>
         </div>)
     } else if (this.model.done) {
