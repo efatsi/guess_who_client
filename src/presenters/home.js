@@ -6,18 +6,20 @@ import PeopleBox from '../views/peopleBox'
 class Home extends Presenter {
   getModel () {
     return {
-      people: state => state.info.people.people,
-      status: state => state.info.status
+      people:  state => state.info.people.people,
+      columns: state => state.info.people.columns,
+      rows:    state => state.info.people.rows,
+      status:  state => state.info.status
     }
   }
 
   render () {
-    let { people, status } = this.model
+    let { people, status, columns, rows } = this.model
 
     return (
       <div>
         <Chrome status={status} />
-        <PeopleBox people={people} status={status}/>
+        <PeopleBox people={people} status={status} columns={columns} rows={rows}/>
       </div>
     )
   }

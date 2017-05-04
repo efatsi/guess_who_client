@@ -5,6 +5,26 @@ import random from '../lib/random'
 
 class PeopleBox extends Component {
 
+  dimension(showing) {
+    let { people, status, columns, rows } = this.props
+
+    let count = columns + rows
+
+    if (showing) {
+      if (count === 2) {
+        return 500
+      } else if (count < 8) {
+        return 300
+      } else if (count < 12) {
+        return 250
+      } else {
+        return 200
+      }
+    } else {
+      return 0
+    }
+  }
+
   renderPerson = (person, index) => {
     let { status } = this.props
 
@@ -19,8 +39,8 @@ class PeopleBox extends Component {
           top:    random(0, 500)
         }}
         style={{
-          height: spring(showing ? 200 : 0),
-          width:  spring(showing ? 200 : 0),
+          height: spring(this.dimension(showing)),
+          width:  spring(this.dimension(showing)),
           left:   spring(person.left, {stiffness: 120, damping: random(10,12)}),
           top:    spring(person.top, {stiffness: 120, damping: random(10,12)})
         }}>
