@@ -1,14 +1,14 @@
-import { updateInfo } from '../actions'
+import { fetchInfo, updateInfo } from '../actions'
 
 const InfoDomain = {
   getInitialState () {
     return {
-      answers: [],
       people: {
-        people: []
+        columns: 0,
+        rows:    0,
+        people:  []
       },
-      waiting: true,
-      done: false
+      status: "waiting"
     }
   },
 
@@ -19,6 +19,7 @@ const InfoDomain = {
   register () {
     return {
       [updateInfo]: this.update,
+      [fetchInfo]:  this.update,
     }
   }
 }

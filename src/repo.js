@@ -1,16 +1,14 @@
 import Microcosm from 'microcosm'
 import Pusher from 'pusher-js'
 
-import { updateInfo, getPics } from './actions'
+import { fetchInfo, updateInfo } from './actions'
 import Info from './domains/info'
-import Pics from './domains/pics'
 
 class Repo extends Microcosm {
   setup () {
     this.addDomain('info', Info)
-    this.addDomain('pics', Pics)
 
-    this.push(getPics)
+    this.push(fetchInfo)
 
     var pusher = new Pusher('cbd953bd1696f9fdef9e', {
       encrypted: true
@@ -19,6 +17,7 @@ class Repo extends Microcosm {
     let repo = this
     var channel = pusher.subscribe('game');
     channel.bind('update', function(data) {
+      console.log(data)
       repo.push(updateInfo, data)
     });
 

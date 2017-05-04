@@ -1,32 +1,13 @@
 import React from 'react'
 import Presenter from 'microcosm/addons/presenter'
-import PeopleBox from '../views/peopleBox'
+import GameScreen from '../views/gameScreen'
 
 class Home extends Presenter {
   getModel () {
     return {
-      pics:    state => state.pics,
-      answers: state => state.info.answers,
-      done:    state => state.info.done,
-      waiting: state => state.info.waiting,
-      people:  state => {
-        return state.info.people.people
-      }
+      people: state => state.info.people.people,
+      status: state => state.info.status
     }
-  }
-
-  renderPic (image) {
-    return (
-      <img key={image.url} src={image.url} alt="" height="200" style={{display: "none"}}/>
-    )
-  }
-
-  renderPics () {
-    return (
-      <div>
-        { this.model.pics.map(this.renderPic) }
-      </div>
-    )
   }
 
   renderDone () {
@@ -44,7 +25,6 @@ class Home extends Presenter {
           <h1 style={{textAlign: "center"}}>
             Want to play? Think of a Viget and say: <br /><br />"Alexa, Ask The Know It All to begin"
           </h1>
-          { this.renderPics() }
         </div>)
     } else if (this.model.done) {
       let doneStyle = {
@@ -63,23 +43,11 @@ class Home extends Presenter {
     }
   }
 
-  renderAnswer (answer) {
-    return (
-      <li key={ answer.id }>
-        { answer.title }
-      </li>
-    )
-  }
-
   render () {
-    let { people } = this.model
+    let { people, status } = this.model
 
     return (
-      <div>
-        { this.renderDone() }
-
-        <PeopleBox people={people} />
-      </div>
+      <GameScreen people={people} status={status}/>
     )
   }
 }
