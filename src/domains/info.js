@@ -1,4 +1,4 @@
-import { fetchInfo, updateInfo } from '../actions'
+import { fetchInfo, updateInfo, wait } from '../actions'
 
 const InfoDomain = {
   getInitialState () {
@@ -16,10 +16,18 @@ const InfoDomain = {
     return info
   },
 
+  wait (state) {
+    return {
+      ...state,
+      status: "waiting"
+    }
+  },
+
   register () {
     return {
       [updateInfo]: this.update,
       [fetchInfo]:  this.update,
+      [wait]:       this.wait,
     }
   }
 }

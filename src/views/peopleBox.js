@@ -3,10 +3,12 @@ import styles from './styles/home'
 import {Motion, spring} from 'react-motion';
 import random from '../lib/random'
 
-class GameScreen extends Component {
+class PeopleBox extends Component {
 
   renderPerson = (person, index) => {
-    let showing = person.visible
+    let { status } = this.props
+
+    let showing = status === "waiting" ? false : person.visible
 
     return (
       <Motion key={ person.id }
@@ -53,4 +55,4 @@ class GameScreen extends Component {
   }
 }
 
-export default GameScreen
+export default PeopleBox

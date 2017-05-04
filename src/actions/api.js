@@ -1,18 +1,14 @@
 import Gangway from 'gangway'
 
 var API = Gangway({
-  baseURL: 'https://guess-whoo.herokuapp.com'
+  // baseURL: 'https://guess-whoo.herokuapp.com'
+  baseURL: 'http://localhost:3000'
+})
+
 API.route({
   info: {
     method: 'GET',
     path:   '/info'
-  }
-})
-
-API.route({
-  pics: {
-    method: 'GET',
-    path:   '/pics'
   }
 })
 

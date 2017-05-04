@@ -1,7 +1,7 @@
 import Microcosm from 'microcosm'
 import Pusher from 'pusher-js'
 
-import { fetchInfo, updateInfo } from './actions'
+import { fetchInfo, updateInfo, wait } from './actions'
 import Info from './domains/info'
 
 class Repo extends Microcosm {
@@ -15,21 +15,15 @@ class Repo extends Microcosm {
     });
 
     let repo = this
-    var channel = pusher.subscribe('game');
+
+    var channel = pusher.subscribe('game-dev');
     channel.bind('update', function(data) {
       console.log(data)
       repo.push(updateInfo, data)
     });
 
     channel.bind('wait', function(data) {
-      repo.push(updateInfo, {
-        answers: [],
-        people: {
-          people: []
-        },
-        waiting: true,
-        done: false
-      })
+      repo.push(wait)
     });
   }
 }

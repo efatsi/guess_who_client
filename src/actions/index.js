@@ -4,10 +4,9 @@ export function updateInfo (info) {
   return info
 }
 
-export function fetchInfo () {
-  return API.info()
+export function wait () {
 }
 
-export function getPics () {
-  return API.pics()
+export function fetchInfo () {
+  return API.info()
 }
