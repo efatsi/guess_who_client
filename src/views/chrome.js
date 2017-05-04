@@ -9,7 +9,7 @@ class Chrome extends Component {
       return (
         <div style={styles.waitingStyle}>
           <h1 style={{textAlign: "center"}}>
-            Want to play? Think of a Viget and say: <br /><br />"Alexa, Ask The Know It All to begin"
+            Want to play? Think of a Viget and say: <br /><br />"Alexa, Tell The Know It All I want to play"
           </h1>
         </div>
       )

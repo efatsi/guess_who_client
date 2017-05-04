@@ -7,6 +7,9 @@ export function updateInfo (info) {
 export function wait () {
 }
 
+export function mixItUp () {
+}
+
 export function fetchInfo () {
   return API.info()
 }

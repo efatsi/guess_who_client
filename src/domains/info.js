@@ -1,4 +1,4 @@
-import { fetchInfo, updateInfo, wait } from '../actions'
+import { fetchInfo, updateInfo, wait, mixItUp } from '../actions'
 
 const InfoDomain = {
   getInitialState () {
@@ -8,18 +8,27 @@ const InfoDomain = {
         rows:    0,
         people:  []
       },
+      mixCount: 0,
       status: "waiting"
     }
   },
 
   update (state, info) {
-    return info
+    return {...state, ...info}
   },
 
   wait (state) {
     return {
       ...state,
-      status: "waiting"
+      mixCount: 0,
+      status:   "waiting"
+    }
+  },
+
+  mixIt (state) {
+    return {
+      ...state,
+      mixCount: state.mixCount + 1
     }
   },
 
@@ -28,6 +37,7 @@ const InfoDomain = {
       [updateInfo]: this.update,
       [fetchInfo]:  this.update,
       [wait]:       this.wait,
+      [mixItUp]:    this.mixIt,
     }
   }
 }
