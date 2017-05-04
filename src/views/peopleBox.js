@@ -6,7 +6,6 @@ import random from '../lib/random'
 class PeopleBox extends Component {
 
   render () {
-    console.log(this.state)
     let { people } = this.props
 
     return (
@@ -70,7 +69,7 @@ class PeopleBox extends Component {
 
   setTempPositions (person) {
     if (this.waiting()) {
-      if (this.props.mixCount == 0 || random(0, 100) < 7) {
+      if (this.props.mixCount === 0 || random(0, 100) < 7) {
         person.tempLeft = random(5, 90)
         person.tempTop  = random(5, 90)
       }
