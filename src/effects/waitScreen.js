@@ -18,7 +18,7 @@ class WaitScreen {
     }, 3000)
   }
 
-  waitThenMixItUp (repo, delay) {
+  waitThenMixItUp (repo) {
     setTimeout(function() {
       repo.push(wait)
       this.mixItUp(repo)
