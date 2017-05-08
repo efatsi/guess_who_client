@@ -21,16 +21,18 @@ class PeopleBox extends Component {
     return (
       <Motion key={ person.id }
         defaultStyle={{
-          height: 200,
-          width:  200,
-          left:   random(-100, 500),
-          top:    random(-100, 500)
+          height:  200,
+          width:   200,
+          left:    random(-100, 500),
+          top:     random(-100, 500),
+          opacity: 0.2
         }}
         style={{
-          height: spring(this.dimension(person)),
-          width:  spring(this.dimension(person)),
-          left:   spring(person.tempLeft, {stiffness: this.stiffness(), damping: random(8,12)}),
-          top:    spring(person.tempTop, {stiffness: this.stiffness(), damping: random(8,12)})
+          height:  spring(this.dimension(person)),
+          width:   spring(this.dimension(person)),
+          left:    spring(person.tempLeft, {stiffness: this.stiffness(), damping: random(8,12)}),
+          top:     spring(person.tempTop, {stiffness: this.stiffness(), damping: random(8,12)}),
+          opacity: spring(this.waiting() ? 0.2 : 1)
         }}>
 
         { value => (
@@ -90,6 +92,7 @@ class PeopleBox extends Component {
       top:     value.top + "%",
       height:  value.height,
       width:   value.width,
+      opacity: value.opacity,
       ...styles.profilePic
     }
 
